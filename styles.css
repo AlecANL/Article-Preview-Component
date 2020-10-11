@@ -128,6 +128,7 @@ img {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  position: relative;
 }
 
 @media screen and (min-width: 1024px) {
@@ -178,47 +179,79 @@ img {
   cursor: pointer;
   margin-left: 2.6rem;
   padding: 0.8rem;
+  z-index: 10000;
+  position: absolute;
+  right: 0.2rem;
+  top: 2.2rem;
+}
+
+@media screen and (min-width: 1024px) {
+  .icon-shared {
+    right: 2rem;
+    top: 1rem;
+  }
 }
 
 /* Social Icons */
-.social-icons {
-  position: absolute;
-  background-color: var(--veryDarkGrayish);
-  width: 100%;
-  left: 0;
-  bottom: 0;
-  padding: 1.7rem;
-  color: var(--desaturedDarkBlue);
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+.modal-social-icons {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  bottom: 0;
+  border-radius: 0.5rem;
+  background-color: var(--veryDarkGrayish);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  border-bottom-left-radius: 0.5rem;
-  border-bottom-right-radius: 0.5rem;
-  display: none;
+  left: 0;
+  position: absolute;
+  padding: 1.7rem;
+  width: 100%;
+  opacity: 0;
+  -webkit-transition: all 0.5s ease-in;
+  transition: all 0.5s ease-in;
+  pointer-events: none;
 }
 
-.social-icons > p {
+.modal-social-icons p {
+  color: #fff;
   font-size: 1.7rem;
-  display: inline-block;
+  text-transform: uppercase;
+  margin: 0 2rem 0 0;
+  padding: 1rem;
 }
 
-.social-icons > img {
+.modal-social-icons > img {
   margin: 1rem;
 }
 
 @media screen and (min-width: 1024px) {
-  .social-icons {
-    width: 50%;
-    padding: 0.5rem;
-    border-radius: 0.5rem;
-    left: 45%;
+  .modal-social-icons {
+    left: 65%;
     bottom: 25%;
+    width: 50%;
+    padding: 1rem;
   }
+  .modal-social-icons::after {
+    display: block;
+    content: '';
+    height: 20px;
+    width: 20px;
+    background-color: var(--veryDarkGrayish);
+    position: absolute;
+    left: 50%;
+    bottom: -15%;
+    -webkit-transform: rotate(45deg);
+            transform: rotate(45deg);
+  }
+}
+
+.visible {
+  opacity: 1;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
 }
 /*# sourceMappingURL=styles.css.map */
